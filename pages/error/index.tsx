@@ -22,6 +22,7 @@ import {initRouter} from "../../extra/constants/router";
 export default function ErrorPage (props:errorPageInterface){
     const size = useWindowSize()
     const router = useRouter()
+
     return(
         <>
             <Container>

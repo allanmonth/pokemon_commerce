@@ -72,7 +72,6 @@ function MyApp({Component, pageProps}: AppProps) {
         <Head>
           <title>IntelliFitClub</title>
           <link rel="stylesheet" type="text/css" href="/nprogress.css" />
-          <link rel="stylesheet" href="/input.css" />
         </Head>
         {isMounted && (
             <Provider store={store}>

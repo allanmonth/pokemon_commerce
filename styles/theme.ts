@@ -37,24 +37,6 @@ export default function Theme() {
                 fontSize: 26,
                 fontWeight: 500,
             },
-            h2:{
-                fontSize: 16,
-            },
-            h3:{
-                fontSize: 16,
-                fontWeight: 500,
-            },
-            h4:{
-                fontSize: 12,
-                fontWeight: 500,
-            },
-            h5:{
-                fontSize: 50,
-                fontWeight: 500,
-            },
-            h6:{
-                fontSize: 154,
-            },
             subtitle1:{
                 fontSize: 14,
             },

@@ -10,7 +10,6 @@ import {GridInterface, GridInterfaceNumber} from "../../interfaces/grid";
 export function GridNumber (props:GridInterfaceNumber){
     return(
         <Grid
-            {...props}
             container
             item
             xs={props.number}

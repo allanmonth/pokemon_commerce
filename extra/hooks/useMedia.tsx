@@ -1,5 +1,8 @@
 import {useEffect, useState} from "react";
 
+//PROPS
+//query -> function Media
+
 export function useMedia(query: string) {
     const [matches, setMatches] = useState(false);
 

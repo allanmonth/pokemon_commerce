@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 //Interface
 import { useWindowsSizeInterface} from "../interfaces/useWindowsSize";
 
+//Value width to mobile
 const mobile = 850
 
 export function useWindowSize() {
