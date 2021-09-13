@@ -8,5 +8,6 @@
   "cartEmply": "Carrinho vazio",
   "concluse": "Finalizar",
   "total": "Total",
-  "parcel": "em até {value}x sem juros"
+  "parcel": "em até {value}x sem juros",
+  "search": "Pesquisar por nome..."
 }

@@ -1,4 +1,5 @@
 import { Button , Paper } from "@material-ui/core";
+import { useRouter } from "next/router";
 
 //Components
 import {Grid12, GridNumber} from "../../../common/grid";
@@ -29,11 +30,15 @@ import { ItemsState } from "../../../../interfaces/cartState";
 //Icons
 import { ShoppingCartOutlined } from "@material-ui/icons";
 
+//Constants
+import { viewCartRouter } from "../../../../constants/router";
+
 export function Cart(){
     const size = useWindowSize()
     const language = useNavigator()
     const classes = useCartCSS(size)
     const cart = useAppSelector(selectCart);
+    const router = useRouter()
 
     return(
         <>
@@ -47,7 +52,8 @@ export function Cart(){
             </Paper>
             <Paper className={classes.root}>
                 {/*items*/}
-                {cart.items.length === 0 ?
+                {cart.items !== undefined ?
+                    cart.items.length === 0 ?
                     <NotResult icon={<ShoppingCartOutlined/>} title={'cartEmply'}/>
                 :
                     cart.items.map((opt:ItemsState)=>(
@@ -57,7 +63,7 @@ export function Cart(){
                                   name={opt.name}
                                   value={opt.value}
                                   quantity={opt.quantity}/>
-                    ))
+                    )): null
                 }
             </Paper>
             <Paper className={classes.rootEnd}>
@@ -95,7 +101,7 @@ export function Cart(){
                             variant={"contained"}
                             color={'primary'}
                             className={classes.button}
-                            onClick={()=>{}}>
+                            onClick={()=>{router.push(viewCartRouter)}}>
                         {intl.get('concluse')}
                     </Button>
                 </Grid12>

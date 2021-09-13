@@ -15,7 +15,7 @@ export const useCartCSS = makeStyles(() =>
         },
         rootEnd: {
             width: (size:useWindowsSizeInterface) => size.width/12 * 3.3,
-            height: 140,
+            height: 150,
             position:'fixed',
             right:20,
             bottom: 30,

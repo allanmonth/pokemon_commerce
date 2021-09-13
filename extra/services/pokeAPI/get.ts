@@ -9,6 +9,9 @@ import {ErrorGeneric} from "../../utils/errorGeneric";
 
 //Interfaces
 import {ArrayItemsPokemonCard} from "../../interfaces/itemsPokemonCard";
+import { arrayBuffer } from "stream/consumers";
+import { NextRouter } from "next/router";
+import { viewPokemonRouter } from "../../constants/router";
 
 export function getPokemon (
     init: number,
@@ -25,6 +28,20 @@ export function getPokemon (
             const pageTotal = (res.data.count / limit) >> 0
             setCount(pageTotal + 1)
             setChange(change + 1)
+        })
+        .catch((error)=>{
+            dispatch(ErrorGeneric(String(error.response.status) + ' - ' + error.response.data))
+        })
+}
+
+export function getPokemonName (
+    router: NextRouter,
+    name:string,
+    dispatch: AppDispatch
+){
+    api.get("pokemon/"+ name + '/')
+        .then((res)=>{
+            router.push(viewPokemonRouter + res.data.id)
         })
         .catch((error)=>{
             dispatch(ErrorGeneric(String(error.response.status) + ' - ' + error.response.data))

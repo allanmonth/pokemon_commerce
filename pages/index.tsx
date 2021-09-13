@@ -14,7 +14,7 @@ import {useNavigator} from "../extra/hooks/useNavigator";
 import {useWindowSize} from "../extra/hooks/useWindowSize";
 
 //Services
-import {getPokemon} from "../extra/services/pokeAPI/get";
+import { getPokemon , getPokemonName } from "../extra/services/pokeAPI/get";
 
 //Utils
 import {FormatterCurrency} from "../extra/utils/formatterCurrency";
@@ -55,10 +55,15 @@ export default function Home(){
         getPokemon(value * limit - limit, limit,setItems,change,setChange,setCount,dispatch)
     };
 
+    //Find name
+    const handleFind = (name:string) => {
+        getPokemonName(router,name,dispatch)
+    };
+
   return(
       <Grid12>
           <Grid12>
-              <Header/>
+              <Header handleFind={handleFind}/>
           </Grid12>
           <Grid12>
               <Grid9 justifyContent={'center'}
