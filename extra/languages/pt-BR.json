@@ -6,5 +6,6 @@
   "view": "Ver",
   "cart": "Carrinho",
   "concluse": "Finalizar",
-  "total": "Total"
+  "total": "Total",
+  "parcel": "em até {value}x sem juros"
 }

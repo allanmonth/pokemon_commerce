@@ -13,5 +13,11 @@ export const useCartCSS = makeStyles(() =>
             marginTop: 30,
             marginBottom: 30
         },
+        button: {
+            color : "white" ,
+            marginBottom:20,
+            marginTop:20,
+            width: '95%'
+        },
     }),
 );

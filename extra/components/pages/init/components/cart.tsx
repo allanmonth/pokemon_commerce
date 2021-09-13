@@ -14,9 +14,15 @@ import {useCartCSS} from "../style/cart";
 import intl from "react-intl-universal";
 import {Diviser} from "../../../common/diviser";
 
+//PROPS
+//
+
 export function Cart(){
     const size = useWindowSize()
     const classes = useCartCSS(size)
+
+    //Quantity parcel
+    const parcel = 10
 
     return(
         <Paper className={classes.root}>
@@ -26,10 +32,12 @@ export function Cart(){
                     {intl.get('cart')}
                 </TypographyCustom>
             </Grid12>
+            {/*items*/}
 
             {/*value total*/}
             <Diviser/>
-            <Grid12 justifyContent={'center'} style={{marginTop:10}}>
+            <Grid12 justifyContent={'center'}
+                    style={{marginTop:10}}>
                 <GridNumber number={6}
                             style={{paddingLeft:20}}>
                     <TypographyCustom variant={'h1'}>
@@ -47,10 +55,9 @@ export function Cart(){
                 <Grid12 justifyContent={'flex-end'}
                         style={{paddingRight:20}}>
                     <TypographyCustom variant={'subtitle1'}>
-                        em até 12x sem juros
+                        {intl.get('parcel',{value: parcel})}
                     </TypographyCustom>
                 </Grid12>
-
             </Grid12>
             {/*actions*/}
             <Grid12 justifyContent={'center'}>
@@ -58,12 +65,7 @@ export function Cart(){
                         fullWidth
                         variant={"contained"}
                         color={'primary'}
-                        style={{
-                            color : "white" ,
-                            marginBottom:20,
-                            marginTop:20,
-                            width: '95%'
-                        }}
+                        className={classes.button}
                         onClick={()=>{}}>
                     {intl.get('concluse')}
                 </Button>
