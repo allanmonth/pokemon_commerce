@@ -1,4 +1,6 @@
 {
   "back": "Back",
-  "message404": "Page not found"
+  "message404": "Page not found",
+  "addCard": "Add card",
+  "view": "View"
 }

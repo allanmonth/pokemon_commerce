@@ -34,8 +34,16 @@ export default function Theme() {
                 'Montserrat',
             ].join(','),
             h1:{
-                fontSize: 26,
-                fontWeight: 500,
+                fontSize: 30,
+                fontWeight: 600,
+            },
+            h2:{
+                fontSize: 20,
+                fontWeight: 600,
+            },
+            h6:{
+                fontSize: 300,
+                fontWeight: 600,
             },
             subtitle1:{
                 fontSize: 14,

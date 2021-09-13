@@ -10,18 +10,16 @@ import {useWindowSize} from "../../../../hooks/useWindowSize";
 //Interface
 import {ContainerInterface} from "../../../../interfaces/container";
 
+//CSS
+import {useImageBackgroundErrorCSS} from "../style/imageBackgroundError";
+
 export function ImageBackgroundError({children}:ContainerInterface){
     const size = useWindowSize()
+    const classes = useImageBackgroundErrorCSS(size);
+
     return(
-        <div style={{
-            height: size.height ,
-        }}>
-            <div style={{
-                height: size.height /8 ,
-                width: size.width / 5,
-                position: 'absolute',
-                marginLeft: size.width / 50,
-            }}>
+        <div className={classes.root}>
+            <div className={classes.absolute}>
                 <Image alt="BackgroundImage"
                        src={Icon}
                        layout="fill"
@@ -29,11 +27,7 @@ export function ImageBackgroundError({children}:ContainerInterface){
                        quality={100}
                        priority />
             </div>
-            <div style={{
-                height: '100%',
-                width: '100%',
-                position: 'absolute',
-            }}>
+            <div className={classes.children}>
                 {children}
             </div>
         </div>
