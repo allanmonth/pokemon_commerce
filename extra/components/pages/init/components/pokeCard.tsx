@@ -25,6 +25,9 @@ import {usePokeCardCSS} from "../style/pokeCard";
 //Interfaces
 import {pokeCardInterface} from "../../../../interfaces/pokeCard";
 
+//Redux
+import {useDispatch} from "react-redux";
+
 //PROPS
 //click -> function on click in card
 //id -> object id
@@ -36,7 +39,8 @@ import {pokeCardInterface} from "../../../../interfaces/pokeCard";
 export function PokeCard(props : pokeCardInterface) {
     const size = useWindowSize();
     const classes = usePokeCardCSS(size);
-    const { data } = useFetchPokemon("pokemon/"+ String(props.id).substring(props.id.lastIndexOf("/") + 1 ));
+    const dispatch = useDispatch()
+    const { data } = useFetchPokemon("pokemon/"+ String(props.id).substring(props.id.lastIndexOf("/") + 1 ),dispatch);
 
     return (
         !data?
