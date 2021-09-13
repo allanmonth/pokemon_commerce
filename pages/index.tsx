@@ -68,9 +68,7 @@ export default function Home(){
                           <PokeCard key={option.name}
                                     id={String(option.url.slice(0, -1))}
                                     title={option.name}
-                                    subtitle={String(FormatterCurrency(Math.floor((Math.random() * 1000) + 1), language))}
-                                    clickAdd={() => {
-                                    }}
+                                    subtitle={Math.floor((Math.random() * 1000) + 1)}
                                     clickView={() => {
                                         clickView(String(option.url.slice(0, -1)), router)
                                     }}/>

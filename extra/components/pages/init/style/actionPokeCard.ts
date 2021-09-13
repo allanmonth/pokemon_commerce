@@ -13,6 +13,11 @@ export const useActionPokeCardCSS = makeStyles(() =>
             marginLeft: 10,
             cursor:'pointer'
         },
-        
+        button: {
+            color : "white" ,
+            marginBottom:5,
+            marginTop:5,
+            width: '95%'
+        },
     }),
 );

@@ -1,8 +1,8 @@
 import React from "react";
+import {Button} from "@material-ui/core";
 
 //Components
 import {GridNumber} from "../../../common/grid";
-import {TypographyCustom} from "../../../common/typography";
 
 //I18N
 import intl from "react-intl-universal";
@@ -12,12 +12,12 @@ import {ActionPokeCardInterface} from "../../../../interfaces/actionPokeCardInte
 
 //CSS
 import {useActionPokeCardCSS} from "../style/actionPokeCard";
-import {Button} from "@material-ui/core";
 
 //PROPS
 //title -> object title key I18N
 //icon -> object icon
 //click -> event on click mouse
+//variant -> style button
 
 export function ActionCard(props: ActionPokeCardInterface){
     const classes = useActionPokeCardCSS()
@@ -27,22 +27,13 @@ export function ActionCard(props: ActionPokeCardInterface){
                     justifyContent={'center'}>
             <Button hidden
                     fullWidth
-                    variant={"contained"}
+                    variant={props.variant ?? "contained"}
                     color={'primary'}
                     className={classes.button}
-                    onClick={()=>{}}>
-                {intl.get('concluse')}
-            </Button>
-            <TypographyCustom variant={'subtitle1'}
-                              onClick={props.click}
-                              className={classes.icon}>
-                {props.icon}
-            </TypographyCustom>
-            <TypographyCustom variant={'subtitle1'}
-                              onClick={props.click}
-                              className={classes.title}>
+                    startIcon={props.icon}
+                    onClick={props.click}>
                 {intl.get(props.title)}
-            </TypographyCustom>
+            </Button>
         </GridNumber>
     )
 }

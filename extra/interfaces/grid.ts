@@ -1,4 +1,4 @@
-import {GridDirection, GridJustification, GridSize} from "@material-ui/core";
+import {GridDirection , GridJustification , GridSize } from "@material-ui/core";
 import React, {CSSProperties} from "react";
 
 export interface GridInterfaceNumber {
@@ -6,12 +6,12 @@ export interface GridInterfaceNumber {
     children ?: React.ReactNode,
     justifyContent ?: GridJustification,
     style ?: CSSProperties,
-    directions ?: GridDirection,
+    directions ?: GridDirection
 }
 
 export interface GridInterface {
     children ?: React.ReactNode,
     justifyContent ?: GridJustification,
     style ?: CSSProperties,
-    directions ?: GridDirection,
+    directions ?: GridDirection
 }

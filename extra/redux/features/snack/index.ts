@@ -1,14 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import {RootState} from "../../store";
 
-export interface SnackState {
-    message: string;
-    type: 'error' | 'success' | 'warning' | 'info';
-    open: boolean;
-}
+//Interfaces
+import { SnackState } from "../../../interfaces/snackState";
 
 const initialState: SnackState = {
-    message: 'allan',
+    message: '',
     type: 'success',
     open: false
 };

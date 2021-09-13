@@ -5,6 +5,7 @@
   "addCard": "Adicionar ao carrinho",
   "view": "Ver",
   "cart": "Carrinho",
+  "cartEmply": "Carrinho vazio",
   "concluse": "Finalizar",
   "total": "Total",
   "parcel": "em até {value}x sem juros"

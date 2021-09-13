@@ -41,6 +41,10 @@ export default function Theme() {
                 fontSize: 20,
                 fontWeight: 600,
             },
+            h3:{
+                fontSize: 16,
+                fontWeight: 600,
+            },
             h6:{
                 fontSize: 300,
                 fontWeight: 600,
