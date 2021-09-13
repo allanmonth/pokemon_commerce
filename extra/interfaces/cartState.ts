@@ -9,7 +9,8 @@ export interface ItemsState {
 export interface CartState {
     items: Array<ItemsState>,
     total: number,
-    parcel: number
+    parcel: number,
+    quantity: number
 }
 
 export interface CartActionState {

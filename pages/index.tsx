@@ -58,11 +58,11 @@ export default function Home(){
   return(
       <Grid12>
           <Grid12>
-
+              <Header/>
           </Grid12>
           <Grid12>
               <Grid9 justifyContent={'center'}
-                     style={{padding:20}}>
+                     style={{padding:20,paddingTop:70}}>
                   {items.length > 0?
                       items.map((option: ItemsPokemonCard) => (
                           <PokeCard key={option.name}

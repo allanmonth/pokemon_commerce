@@ -7,7 +7,8 @@ import { CartActionState , CartState , ItemsState } from "../../../interfaces/ca
 const initialState: CartState = {
     items: [],
     total: 0,
-    parcel: 0
+    parcel: 0,
+    quantity: 0,
 };
 
 export const cartSlice = createSlice({
@@ -28,6 +29,7 @@ export const cartSlice = createSlice({
             if(!emply){
                 array.push(action.payload.item)
             }
+            state.quantity = state.quantity + 1;
             state.items = array;
             state.total = sum;
             state.parcel = (sum) / 100 >> 0 > 12 ? 12 : (sum) / 100 >> 0;
@@ -38,8 +40,10 @@ export const cartSlice = createSlice({
             array.map((opt:ItemsState,i:number)=>{
                 if(opt.id === action.payload.item.id){
                     array.slice(i,1)
+                    state.quantity = state.quantity - array[i].quantity;
                 }
             })
+
             state.items = array;
             state.total = sum;
             state.parcel = (sum) / 100 >> 0 > 12 ? 12 : (sum) / 100 >> 0;
