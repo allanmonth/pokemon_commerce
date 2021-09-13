@@ -8,7 +8,7 @@ export interface SnackState {
 }
 
 const initialState: SnackState = {
-    message: '',
+    message: 'allan',
     type: 'success',
     open: false
 };

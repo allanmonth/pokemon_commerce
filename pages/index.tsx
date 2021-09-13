@@ -1,14 +1,17 @@
 import React, {useEffect, useState} from "react";
 import {Pagination} from "@material-ui/lab";
+import {useRouter} from "next/router";
 
 //Components
 import {Header} from "../extra/components/common/header";
-import {Grid11, Grid12, Grid3, Grid9, GridNumber} from "../extra/components/common/grid";
+import {Grid12, Grid3, Grid9} from "../extra/components/common/grid";
 import {PokeCard} from "../extra/components/pages/init/components/pokeCard";
 import {SkeletonGalleryPokeCard} from "../extra/components/pages/init/components/SkeletonGalleryPokeCard";
+import {Cart} from "../extra/components/pages/init/components/cart";
 
 //Hooks
 import {useNavigator} from "../extra/hooks/useNavigator";
+import {useWindowSize} from "../extra/hooks/useWindowSize";
 
 //Services
 import {getPokemon} from "../extra/services/pokeAPI/get";
@@ -16,18 +19,25 @@ import {getPokemon} from "../extra/services/pokeAPI/get";
 //Utils
 import {FormatterCurrency} from "../extra/utils/formatterCurrency";
 import {clickView} from "../extra/components/pages/init/utils/clickView";
-import {useRouter} from "next/router";
-import {useWindowSize} from "../extra/hooks/useWindowSize";
-import {Cart} from "../extra/components/pages/init/components/cart";
+
+//Redux
+import {useDispatch,} from "react-redux";
+
+//CSS
+import 'react-toastify/dist/ReactToastify.css';
+
+//Interfaces
+import {ItemsPokemonCard} from "../extra/interfaces/itemsPokemonCard";
 
 export default function Home(){
     const language = useNavigator()
     const router = useRouter()
     const size = useWindowSize()
-    const [items,setItems] = useState([])
+    const [items,setItems] = useState<ItemsPokemonCard[]>([])
     const [change,setChange] = useState(0)
     const [count,setCount] = useState(0)
     const [page,setPage] = useState(1)
+    const dispatch = useDispatch()
 
     //Quantity Cards
     const sumLimit = (size.width / 12 * 9) / 300 >> 0
@@ -35,14 +45,14 @@ export default function Home(){
 
     //Init
     useEffect(()=>{
-        getPokemon(0, limit,setItems,change,setChange,setCount)
+        getPokemon(0, limit,setItems,change,setChange,setCount,dispatch)
     },[size])
 
     //Change page
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
         setItems([])
         setPage(value)
-        getPokemon(value * limit - limit, limit,setItems,change,setChange,setCount)
+        getPokemon(value * limit - limit, limit,setItems,change,setChange,setCount,dispatch)
     };
 
   return(
@@ -54,7 +64,7 @@ export default function Home(){
               <Grid9 justifyContent={'center'}
                      style={{padding:20}}>
                   {items.length > 0?
-                      items.map((option: any) => (
+                      items.map((option: ItemsPokemonCard) => (
                           <PokeCard key={option.name}
                                     id={String(option.url.slice(0, -1))}
                                     title={option.name}
