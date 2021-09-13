@@ -7,6 +7,10 @@ Web application at Next.js
 
 **Client:** Next.JS, React, Redux, Material-UI , Axios, SWR.
 
+## Warnings
+
+**Language:** app available in pt-BR and en-US.
+**Language API :** only en-US available.
 
 ## Run Locally
 

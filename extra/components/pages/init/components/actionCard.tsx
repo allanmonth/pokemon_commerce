@@ -12,6 +12,7 @@ import {ActionPokeCardInterface} from "../../../../interfaces/actionPokeCardInte
 
 //CSS
 import {useActionPokeCardCSS} from "../style/actionPokeCard";
+import {Button} from "@material-ui/core";
 
 //PROPS
 //title -> object title key I18N
@@ -24,6 +25,14 @@ export function ActionCard(props: ActionPokeCardInterface){
     return(
         <GridNumber number={12}
                     justifyContent={'center'}>
+            <Button hidden
+                    fullWidth
+                    variant={"contained"}
+                    color={'primary'}
+                    className={classes.button}
+                    onClick={()=>{}}>
+                {intl.get('concluse')}
+            </Button>
             <TypographyCustom variant={'subtitle1'}
                               onClick={props.click}
                               className={classes.icon}>

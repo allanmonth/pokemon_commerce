@@ -12,6 +12,7 @@ export const useActionPokeCardCSS = makeStyles(() =>
             marginTop: 1,
             marginLeft: 10,
             cursor:'pointer'
-        }
+        },
+        
     }),
 );
