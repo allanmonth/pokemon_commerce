@@ -8,7 +8,7 @@ import Badge from '@material-ui/core/Badge';
 //Icons
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import { ShoppingCart } from "@material-ui/icons";
+import { ArrowBackIosOutlined , ShoppingCart } from "@material-ui/icons";
 
 //Redux
 import { useAppSelector } from "../../redux/hooks";
@@ -35,34 +35,61 @@ export function Header(props:any) {
         <div className={classes.grow}>
             <AppBar position="fixed">
                 <Toolbar>
-                    <IconButton
-                        edge="start"
-                        className={classes.menuButton}
-                        color="inherit"
-                        aria-label="open drawer"
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <TypographyCustom className={classes.title}
-                                      variant="h1"
-                                      noWrap>
-                        Pokemon
-                    </TypographyCustom>
-                    <div className={classes.search}>
-                        <InputBase
-                            placeholder={intl.get('search')}
-                            classes={{
-                                root: classes.inputRoot,
-                                input: classes.inputInput,
-                            }}
-                            onChange={(event)=>{
-                                setName(event.target.value)
-                            }}
-                            inputProps={{ 'aria-label': 'search' }}
-                        />
-                    </div>
-                    <SearchIcon style={{cursor:'pointer'}}
-                                onClick={()=>{props.handleFind(name)}}/>
+                    {props.back ?
+                        <>
+                            <IconButton
+                                edge="start"
+                                className={classes.menuButton}
+                                onClick={()=>{router.back()}}
+                                color="inherit"
+                                aria-label="open drawer"
+                            >
+                                <ArrowBackIosOutlined />
+                            </IconButton>
+                            <TypographyCustom className={classes.title}
+                                              variant="h2"
+                                              onClick={()=>{router.back()}}
+                                              noWrap>
+                                {intl.get('back')}
+                            </TypographyCustom>
+                        </>
+                        :
+                        <>
+                            <IconButton
+                                edge="start"
+                                className={classes.menuButton}
+                                color="inherit"
+                                aria-label="open drawer"
+                            >
+                                <MenuIcon />
+                            </IconButton>
+                            <TypographyCustom className={classes.title}
+                                              variant="h1"
+                                              noWrap>
+                                Pokemon
+                            </TypographyCustom>
+                        </>
+                    }
+                    {props.handleFind !== undefined?
+                    <>
+                        <div className={classes.search}>
+                            <InputBase
+                                placeholder={intl.get('search')}
+                                classes={{
+                                    root: classes.inputRoot,
+                                    input: classes.inputInput,
+                                }}
+                                onChange={(event)=>{
+                                    setName(event.target.value)
+                                }}
+                                inputProps={{ 'aria-label': 'search' }}
+                            />
+                        </div>
+                        <SearchIcon style={{cursor:'pointer'}}
+                                    onClick={()=>{props.handleFind(name)}}/>
+                    </>
+                        : null
+                    }
                     <div className={classes.grow} />
                     <div className={classes.sectionDesktop}>
                         <IconButton style={{cursor:'pointer'}}

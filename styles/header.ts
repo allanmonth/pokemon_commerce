@@ -7,6 +7,7 @@ export const useHeaderCSS = makeStyles((theme: Theme) =>
         },
         menuButton: {
             marginRight: theme.spacing(2),
+            cursor: 'pointer'
         },
         title: {
             display: 'none',
