@@ -17,7 +17,17 @@ export const cartSlice = createSlice({
         addItem: (state ,action: PayloadAction<CartActionState>) => {
             const array = state.items
             const sum = state.total + action.payload.item.value
-            array.push(action.payload.item)
+            let emply = false
+            array.map((opt:ItemsState,i:number)=>{
+                if(opt.id === action.payload.item.id){
+                    array[i].quantity = array[i].quantity + 1
+                    emply = true
+                }
+                return null
+            })
+            if(!emply){
+                array.push(action.payload.item)
+            }
             state.items = array;
             state.total = sum;
             state.parcel = (sum) / 100 >> 0 > 12 ? 12 : (sum) / 100 >> 0;

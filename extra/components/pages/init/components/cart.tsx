@@ -1,11 +1,14 @@
-import { Button , Grid , Paper } from "@material-ui/core";
+import { Button , Paper } from "@material-ui/core";
 
 //Components
 import {Grid12, GridNumber} from "../../../common/grid";
 import {TypographyCustom} from "../../../common/typography";
+import { CartItem } from "./cartItem";
+import { NotResult } from "../../../common/notResult";
 
 //Hooks
 import {useWindowSize} from "../../../../hooks/useWindowSize";
+import { useNavigator } from "../../../../hooks/useNavigator";
 
 //CSS
 import {useCartCSS} from "../style/cart";
@@ -16,11 +19,14 @@ import intl from "react-intl-universal";
 //Redux
 import { selectCart } from "../../../../redux/features/cart";
 import { useAppSelector } from "../../../../redux/hooks";
+
+//Utils
 import { FormatterCurrency } from "../../../../utils/formatterCurrency";
-import { useNavigator } from "../../../../hooks/useNavigator";
+
+//Interfaces
 import { ItemsState } from "../../../../interfaces/cartState";
-import { CartItem } from "./cartItem";
-import { NotResult } from "../../../common/notResult";
+
+//Icons
 import { ShoppingCartOutlined } from "@material-ui/icons";
 
 export function Cart(){
