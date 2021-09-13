@@ -22,7 +22,7 @@ export function ActionCard(props: ActionPokeCardInterface){
     const classes = useActionPokeCardCSS()
 
     return(
-        <GridNumber number={6}
+        <GridNumber number={12}
                     justifyContent={'center'}>
             <TypographyCustom variant={'subtitle1'}
                               onClick={props.click}

@@ -70,7 +70,7 @@ function MyApp({Component, pageProps}: AppProps) {
   return (
       <>
         <Head>
-          <title>IntelliFitClub</title>
+          <title>Pokemon Shop</title>
           <link rel="stylesheet" type="text/css" href="/nprogress.css" />
         </Head>
         {isMounted && (

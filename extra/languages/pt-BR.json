@@ -3,5 +3,8 @@
   "message404": "Página não encontrada",
   "messageError": "Erro no serviço, por favor tentar novamente mais tarde.",
   "addCard": "Adicionar ao carrinho",
-  "view": "Ver"
+  "view": "Ver",
+  "cart": "Carrinho",
+  "concluse": "Finalizar",
+  "total": "Total"
 }
