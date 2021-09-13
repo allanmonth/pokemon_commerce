@@ -40,7 +40,7 @@ Start the server
 #### Routes
 
 ```http
-  https://api.intellifitclub.com/docs
+  https://pokeapi.co/api/v2/
 ```
 
 ## Directories
