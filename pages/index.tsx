@@ -3,7 +3,7 @@ import {Pagination} from "@material-ui/lab";
 
 //Components
 import {Header} from "../extra/components/common/header";
-import {Grid10, Grid12, Grid9} from "../extra/components/common/grid";
+import {Grid11, Grid12, Grid3, Grid9, GridNumber} from "../extra/components/common/grid";
 import {PokeCard} from "../extra/components/pages/init/components/pokeCard";
 import {SkeletonGalleryPokeCard} from "../extra/components/pages/init/components/SkeletonGalleryPokeCard";
 
@@ -17,22 +17,26 @@ import {getPokemon} from "../extra/services/pokeAPI/get";
 import {FormatterCurrency} from "../extra/utils/formatterCurrency";
 import {clickView} from "../extra/components/pages/init/utils/clickView";
 import {useRouter} from "next/router";
-
-//Constants Services
-const limit = 15
+import {useWindowSize} from "../extra/hooks/useWindowSize";
+import {Cart} from "../extra/components/pages/init/components/cart";
 
 export default function Home(){
     const language = useNavigator()
     const router = useRouter()
+    const size = useWindowSize()
     const [items,setItems] = useState([])
     const [change,setChange] = useState(0)
     const [count,setCount] = useState(0)
     const [page,setPage] = useState(1)
 
+    //Quantity Cards
+    const sumLimit = (size.width / 12 * 9) / 300 >> 0
+    const limit = sumLimit === 0 ? 5 : sumLimit * 5
+
     //Init
     useEffect(()=>{
         getPokemon(0, limit,setItems,change,setChange,setCount)
-    },[])
+    },[size])
 
     //Change page
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
@@ -46,29 +50,39 @@ export default function Home(){
           <Grid12>
 
           </Grid12>
-          <Grid10 style={{padding:20}}>
-              {items.length > 0?
-                  items.map((option: any) => (
-                      <PokeCard key={option.name}
-                                id={String(option.url.slice(0, -1))}
-                                title={option.name}
-                                subtitle={String(FormatterCurrency(Math.floor((Math.random() * 1000) + 1), language))}
-                                clickAdd={() => {
-                                }}
-                                clickView={() => {
-                                    clickView(String(option.url.slice(0, -1)), router)
-                                }}/>
-                  ))
-                  : <SkeletonGalleryPokeCard/>
+          <Grid12>
+              <Grid9 justifyContent={'center'}
+                     style={{padding:20}}>
+                  {items.length > 0?
+                      items.map((option: any) => (
+                          <PokeCard key={option.name}
+                                    id={String(option.url.slice(0, -1))}
+                                    title={option.name}
+                                    subtitle={String(FormatterCurrency(Math.floor((Math.random() * 1000) + 1), language))}
+                                    clickAdd={() => {
+                                    }}
+                                    clickView={() => {
+                                        clickView(String(option.url.slice(0, -1)), router)
+                                    }}/>
+                      ))
+                      : <SkeletonGalleryPokeCard/>
+                  }
+                  <Grid12 justifyContent={'center'}
+                          style={{marginTop:20}}>
+                      <Pagination size={size.mobile? 'small' : 'medium'}
+                                  count={count}
+                                  page={page}
+                                  color="primary"
+                                  onChange={handleChange} />
+                  </Grid12>
+              </Grid9>
+              {!size.mobile?
+                  <Grid3 style={{padding:20}}>
+                      <Cart/>
+                  </Grid3>
+                  : null
               }
-              <Grid12 justifyContent={'center'}
-                      style={{marginTop:20}}>
-                  <Pagination count={count} page={page} color="primary" onChange={handleChange} />
-              </Grid12>
-
-          </Grid10>
-
-
+          </Grid12>
       </Grid12>
   )
 }
