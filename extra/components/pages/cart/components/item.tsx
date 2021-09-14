@@ -38,17 +38,18 @@ export function Item(props:ItemsState){
 
     return(
         <Grid12 justifyContent={'center'}>
+            <Diviser/>
             <Grid2 justifyContent={'center'}>
                 <Image alt={props.image}
                        src={props.image}
                        objectFit="contain"
                        width={'100%'}
-                       height={'50%'}
+                       height={size.mobile? '100%' : '50%'}
                        quality={100}
                        priority />
             </Grid2>
-            <Grid5>
-                <TypographyCustom variant={'h2'}
+            <Grid5 justifyContent={size.webFlexStart}>
+                <TypographyCustom variant={size.mobile? 'h1' : 'h2'}
                                   className={classes.title}>
                     {props.name}
                 </TypographyCustom>
@@ -70,7 +71,7 @@ export function Item(props:ItemsState){
                                          }
                                      }}/>
             </Grid1>
-            <Grid2 justifyContent={'flex-end'}>
+            <Grid2 justifyContent={size.webFlexEnd}>
                 <TypographyCustom variant={'body1'}
                                   className={classes.title}>
                     {String(FormatterCurrency(props.value, language))}
@@ -82,7 +83,6 @@ export function Item(props:ItemsState){
                             clickRemove({...props},dispatch)
                         }}/>
             </Grid1>
-            <Diviser/>
         </Grid12>
     )
 }

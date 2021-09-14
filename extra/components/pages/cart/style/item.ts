@@ -13,9 +13,9 @@ export const useItemCSS = makeStyles((theme) =>
             cursor: 'pointer'
         },
         title: {
-            marginTop: 30,
+            marginTop:(size:useWindowsSizeInterface) => size.mobile? 5 : 30,
             marginLeft:5,
-            marginBottom: 30
+            marginBottom: (size:useWindowsSizeInterface) => size.mobile? 5 : 30
         },
         button: {
             color : "white" ,
@@ -24,12 +24,13 @@ export const useItemCSS = makeStyles((theme) =>
             width: '95%'
         },
         icon: {
-            marginTop:30,
-            cursor: 'pointer'
+            marginTop:(size:useWindowsSizeInterface) => size.mobile? 5 : 30,
+            cursor: 'pointer',
+            marginBottom: 10
         },
         quantity: {
             marginLeft : 10,
-            marginTop:30,
+            marginTop: (size:useWindowsSizeInterface) => size.mobile? 5 : 30,
             marginRight: 10
         }
     }),

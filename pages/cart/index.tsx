@@ -36,7 +36,7 @@ export default function ViewCart(){
             </Grid12>
             <Grid9 justifyContent={'center'}
                    style={{padding:20,paddingTop:100}}>
-                <Paper style={{width: '90%'}}>
+                <Paper style={{width: size.mobile? '100%' : '90%'}}>
                     <Grid12 justifyContent={'center'}>
                         <TypographyCustom variant={'h1'} style={{paddingTop:20,paddingBottom:20}}>
                             {intl.get('basket')}
