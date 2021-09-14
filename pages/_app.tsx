@@ -22,6 +22,7 @@ import {useNavigator} from "../extra/hooks/useNavigator";
 
 //Components
 import CustomizedSnackbars from "../extra/components/common/snack";
+import CustomizedDialogs from "../extra/components/common/dialog";
 
 function MyApp({Component, pageProps}: AppProps) {
   const [isMounted, setIsMounted] = useState(false)
@@ -77,6 +78,7 @@ function MyApp({Component, pageProps}: AppProps) {
             <Provider store={store}>
               <MuiThemeProvider theme={theme}>
                 <CssBaseline/>
+                <CustomizedDialogs/>
                 <CustomizedSnackbars/>
                 <Component {...pageProps} />
               </MuiThemeProvider>

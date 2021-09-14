@@ -78,6 +78,7 @@ export const cartSlice = createSlice({
             state.items = [];
             state.total = 0;
             state.parcel = 0;
+            state.quantity = 0;
         },
     },
 });

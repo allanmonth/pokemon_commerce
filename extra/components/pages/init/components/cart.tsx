@@ -54,7 +54,7 @@ export function Cart(){
                 {/*items*/}
                 {cart.items !== undefined ?
                     cart.items.length === 0 ?
-                    <NotResult icon={<ShoppingCartOutlined/>} title={'cartEmply'}/>
+                    <NotResult styleBool={true} icon={<ShoppingCartOutlined/>} title={'cartEmply'}/>
                 :
                     cart.items.map((opt:ItemsState)=>(
                         <CartItem id={opt.id}

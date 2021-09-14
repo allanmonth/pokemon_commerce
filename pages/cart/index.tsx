@@ -58,9 +58,7 @@ export default function ViewCart(){
                                 )): null
                         }
                     </Grid12>
-
                 </Paper>
-
             </Grid9>
             <Grid3 style={{padding:20}}>
                 <Resume/>

@@ -23,15 +23,17 @@ import { useAppSelector } from "../../../../redux/hooks";
 import { FormatterCurrency } from "../../../../utils/formatterCurrency";
 
 //Constants
-import { viewCartRouter } from "../../../../constants/router";
 import { Diviser } from "../../../common/diviser";
+import { clickFinish } from "../utils/finish";
+import { useDispatch } from "react-redux";
 
 export function Resume(){
     const size = useWindowSize()
     const language = useNavigator()
     const classes = useResumeCSS(size)
-    const cart = useAppSelector(selectCart);
+    const cart = useAppSelector(selectCart)
     const router = useRouter()
+    const dispatch = useDispatch()
 
     return(
         <>
@@ -78,7 +80,7 @@ export function Resume(){
                             variant={"contained"}
                             color={'primary'}
                             className={classes.button}
-                            onClick={()=>{router.push(viewCartRouter)}}>
+                            onClick={()=>{clickFinish(dispatch,router,cart.total,language)}}>
                         {intl.get('concluse')}
                     </Button>
                 </Grid12>

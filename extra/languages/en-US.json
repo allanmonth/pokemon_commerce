@@ -12,8 +12,8 @@
   "view": "View",
   "resume": "Resume",
   "basket": "My basket",
-  "view": "View",
-  "view": "View",
+  "buyFinish": "Completed purchase",
+  "buyFinishText": "Thank you for your purchase! The request #{value} was generated and you got {money} back!",
   "view": "View"
 
 }
