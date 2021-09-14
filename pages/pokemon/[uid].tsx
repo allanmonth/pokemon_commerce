@@ -118,7 +118,7 @@ export default function ViewPokemon(){
                             </div>
                         ))}
                         <Grid12 justifyContent={'center'} >
-                            <Grid4>
+                            <Grid4 style={{marginBottom:20}}>
                                 <ActionCard title={ 'addCard' }
                                             icon={ <AddCircleRounded/> }
                                             click={()=>clickAdd({
