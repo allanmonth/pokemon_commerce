@@ -13,5 +13,7 @@
   "resume": "Resumo",
   "basket": "Minha cesta",
   "buyFinish": "Compra finalizada",
-  "buyFinishText": "Obrigado pela sua compra! Foi gerado o pedido #{value} e você recebeu {money} de volta!"
+  "buyFinishText": "Obrigado pela sua compra! Foi gerado o pedido #{value} e você recebeu {money} de volta!",
+  "abilities": "Habilidades",
+  "types": "Tipos"
 }

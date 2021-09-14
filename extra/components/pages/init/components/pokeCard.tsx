@@ -46,7 +46,7 @@ export function PokeCard(props : pokeCardInterface) {
     const classes = usePokeCardCSS(size);
     const dispatch = useDispatch()
     const id = String(props.id).substring(props.id.lastIndexOf("/") + 1 )
-    const { data } = useFetchPokemon("pokemon/"+ id,dispatch);
+    const { data } = useFetchPokemon("pokemon/"+ id,dispatch,id !== undefined);
 
     return (
         !data?

@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 
 //Components
-import { Grid1 , Grid12 , Grid2 , Grid5 } from "../../../common/grid";
+import { Grid1 , Grid12 , Grid2 , Grid4 } from "../../../common/grid";
 import {TypographyCustom} from "../../../common/typography";
 import {Diviser} from "../../../common/diviser";
 
@@ -48,13 +48,13 @@ export function Item(props:ItemsState){
                        quality={100}
                        priority />
             </Grid2>
-            <Grid5 justifyContent={size.webFlexStart}>
+            <Grid4 justifyContent={size.webFlexStart}>
                 <TypographyCustom variant={size.mobile? 'h1' : 'h2'}
                                   className={classes.title}>
                     {props.name}
                 </TypographyCustom>
-            </Grid5>
-            <Grid1 justifyContent={'center'}>
+            </Grid4>
+            <Grid2 justifyContent={'center'}>
                 <AddCircleRounded className={classes.icon}
                                   onClick={()=>{
                                       clickAdd({...props},dispatch)
@@ -70,7 +70,7 @@ export function Item(props:ItemsState){
                                              clickRemoveQuantity({...props},dispatch)
                                          }
                                      }}/>
-            </Grid1>
+            </Grid2>
             <Grid2 justifyContent={size.webFlexEnd}>
                 <TypographyCustom variant={'body1'}
                                   className={classes.title}>
