@@ -22,12 +22,6 @@ import { useAppSelector } from "../../../../redux/hooks";
 //Utils
 import { FormatterCurrency } from "../../../../utils/formatterCurrency";
 
-//Interfaces
-import { ItemsState } from "../../../../interfaces/cartState";
-
-//Icons
-import { ShoppingCartOutlined } from "@material-ui/icons";
-
 //Constants
 import { viewCartRouter } from "../../../../constants/router";
 import { Diviser } from "../../../common/diviser";
@@ -49,8 +43,6 @@ export function Resume(){
                         {intl.get('resume')}
                     </TypographyCustom>
                 </Grid12>
-                {/*product quantity*/}
-
                 {/*value total*/}
                 <Diviser/>
                 <Grid12 justifyContent={'center'}

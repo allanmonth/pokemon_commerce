@@ -4,6 +4,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import InputBase from '@material-ui/core/InputBase';
 import Badge from '@material-ui/core/Badge';
+import { useRouter } from "next/router";
 
 //Icons
 import MenuIcon from '@material-ui/icons/Menu';
@@ -22,10 +23,18 @@ import { useHeaderCSS } from "../../../styles/header";
 
 //Components
 import { TypographyCustom } from "./typography";
-import { useRouter } from "next/router";
+
+//Constants
 import { viewCartRouter } from "../../constants/router";
 
-export function Header(props:any) {
+//Interfaces
+import { HeaderInterface } from "../../interfaces/header";
+
+//PROPS
+//back -> when you want the option with the back button
+//handleFind -> function find pokemon
+
+export function Header(props:HeaderInterface) {
     const classes = useHeaderCSS();
     const cart = useAppSelector(selectCart);
     const router = useRouter();
@@ -86,7 +95,7 @@ export function Header(props:any) {
                             />
                         </div>
                         <SearchIcon style={{cursor:'pointer'}}
-                                    onClick={()=>{props.handleFind(name)}}/>
+                                    onClick={()=>{props.handleFind !== undefined ?props.handleFind(name) : null}}/>
                     </>
                         : null
                     }

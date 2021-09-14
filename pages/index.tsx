@@ -10,14 +10,12 @@ import {SkeletonGalleryPokeCard} from "../extra/components/pages/init/components
 import {Cart} from "../extra/components/pages/init/components/cart";
 
 //Hooks
-import {useNavigator} from "../extra/hooks/useNavigator";
 import {useWindowSize} from "../extra/hooks/useWindowSize";
 
 //Services
 import { getPokemon , getPokemonName } from "../extra/services/pokeAPI/get";
 
 //Utils
-import {FormatterCurrency} from "../extra/utils/formatterCurrency";
 import {clickView} from "../extra/components/pages/init/utils/clickView";
 
 //Redux
@@ -30,7 +28,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import {ItemsPokemonCard} from "../extra/interfaces/itemsPokemonCard";
 
 export default function Home(){
-    const language = useNavigator()
     const router = useRouter()
     const size = useWindowSize()
     const [items,setItems] = useState<ItemsPokemonCard[]>([])

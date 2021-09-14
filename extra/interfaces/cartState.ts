@@ -3,7 +3,7 @@ export interface ItemsState {
     image: string,
     name: string,
     value: number,
-    quantity: number
+    quantity: number,
 }
 
 export interface CartState {
