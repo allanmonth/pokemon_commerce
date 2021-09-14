@@ -1,7 +1,7 @@
 import {createStyles, makeStyles} from "@material-ui/core/styles";
 import {useWindowsSizeInterface} from "../../../../interfaces/useWindowsSize";
 
-export const useActionPokeCardCSS = makeStyles(() =>
+export const useActionPokeCardCSS = makeStyles((theme) =>
     createStyles({
         icon: {
             color:'white',
@@ -14,7 +14,7 @@ export const useActionPokeCardCSS = makeStyles(() =>
             cursor:'pointer'
         },
         button: {
-            color : "white" ,
+            color : theme.palette.action.active ,
             marginBottom:5,
             marginTop:5,
             width: '95%'

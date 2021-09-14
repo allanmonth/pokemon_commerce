@@ -64,13 +64,12 @@ export function PokeCard(props : pokeCardInterface) {
                                priority />
                     </Grid12>
                     <Grid12 justifyContent={'center'}>
-                        <TypographyCustom variant={props.title.length < 15 ?'h2' : 'h3'}
-                                          style={{color:'white'}}>
+                        <TypographyCustom variant={props.title.length < 15 ?'h2' : 'h3'}>
                             {props.title[0].toUpperCase() + props.title.substr(1)}
                         </TypographyCustom>
                     </Grid12>
                     <Grid12 justifyContent={'center'} style={{marginBottom:20}}>
-                        <TypographyCustom style={{color:'white'}}>
+                        <TypographyCustom>
                             {String(FormatterCurrency(props.subtitle, language))}
                         </TypographyCustom>
                     </Grid12>
