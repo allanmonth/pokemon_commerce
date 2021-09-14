@@ -4,9 +4,10 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 
 //Components
-import { Grid12 } from "../../extra/components/common/grid";
+import { Grid12 , Grid4 } from "../../extra/components/common/grid";
 import { Header } from "../../extra/components/common/header";
 import { TypographyCustom } from "../../extra/components/common/typography";
+import { ActionCard } from "../../extra/components/pages/init/components/actionCard";
 
 //hooks
 import { useWindowSize } from "../../extra/hooks/useWindowSize";
@@ -19,6 +20,12 @@ import { useDispatch } from "react-redux";
 
 //I18N
 import intl from "react-intl-universal";
+
+//Icons
+import { AddCircleRounded } from "@material-ui/icons";
+
+//Utils
+import { clickAdd } from "../../extra/components/pages/init/utils/clickAdd";
 
 export default function ViewPokemon(){
     const size = useWindowSize();
@@ -107,11 +114,23 @@ export default function ViewPokemon(){
                                     <div style={{width:'80%',marginBottom:20}}>
                                         <LinearProgress variant="determinate" color={'primary'} value={opt.base_stat} />
                                     </div>
-
                                 </Grid12>
                             </div>
                         ))}
-
+                        <Grid12 justifyContent={'center'} >
+                            <Grid4>
+                                <ActionCard title={ 'addCard' }
+                                            icon={ <AddCircleRounded/> }
+                                            click={()=>clickAdd({
+                                                id: Number(data.id),
+                                                image: data.sprites.front_default,
+                                                name: data.name,
+                                                value: Math.floor((Math.random() * 1000) + 1),
+                                                quantity: 1,
+                                            },dispatch)}
+                                            variant={ 'contained' }/>
+                            </Grid4>
+                        </Grid12>
                     </Paper>
                 </Grid12>
                 : null

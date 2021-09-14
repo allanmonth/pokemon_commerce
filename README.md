@@ -11,6 +11,7 @@ Web application at Next.js
 
 **Language:** app available in pt-BR and en-US.
 **Language API :** only en-US available.
+**Money Random :** values random.
 
 ## Run Locally
 
