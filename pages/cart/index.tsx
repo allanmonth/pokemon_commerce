@@ -1,4 +1,5 @@
 import React from "react";
+import { Paper } from "@material-ui/core";
 
 //Components
 import { Grid12 , Grid3 , Grid9 } from "../../extra/components/common/grid";
@@ -34,30 +35,36 @@ export default function ViewCart(){
                 <Header back={true}/>
             </Grid12>
             <Grid9 justifyContent={'center'}
-                   style={{padding:20,paddingTop:70}}>
-                <TypographyCustom variant={'h1'} style={{paddingTop:20}}>
-                    {intl.get('basket')}
-                </TypographyCustom>
-                {cart.items !== undefined ?
-                    cart.items.length === 0 ?
-                        <NotResult icon={<ShoppingCartOutlined/>} title={'cartEmply'}/>
-                        :
-                        cart.items.map((opt:ItemsState)=>(
-                            <Item id={opt.id}
-                                  key={opt.id}
-                                  image={opt.image}
-                                  name={opt.name}
-                                  value={opt.value}
-                                  quantity={opt.quantity}/>
-                        )): null
-                }
+                   style={{padding:20,paddingTop:100}}>
+                <Paper style={{width: '90%'}}>
+                    <Grid12 justifyContent={'center'}>
+                        <TypographyCustom variant={'h1'} style={{paddingTop:20,paddingBottom:20}}>
+                            {intl.get('basket')}
+                        </TypographyCustom>
+                        {cart.items !== undefined ?
+                            cart.items.length === 0 ?
+                                <Grid12 justifyContent={'center'}>
+                                    <NotResult icon={<ShoppingCartOutlined/>} styleBool={false} title={'cartEmply'}/>
+                                </Grid12>
+
+                                :
+                                cart.items.map((opt:ItemsState)=>(
+                                    <Item id={opt.id}
+                                          key={opt.id}
+                                          image={opt.image}
+                                          name={opt.name}
+                                          value={opt.value}
+                                          quantity={opt.quantity}/>
+                                )): null
+                        }
+                    </Grid12>
+
+                </Paper>
+
             </Grid9>
-            {!size.mobile?
-                <Grid3 style={{padding:20}}>
-                    <Resume/>
-                </Grid3>
-                : null
-            }
+            <Grid3 style={{padding:20}}>
+                <Resume/>
+            </Grid3>
         </Grid12>
     )
 }

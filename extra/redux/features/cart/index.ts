@@ -52,7 +52,7 @@ export const cartSlice = createSlice({
         },
         removeItem: (state ,action: PayloadAction<CartActionState>) => {
             const array = state.items
-            const sum = state.total - action.payload.item.value
+            const sum = state.total - (action.payload.item.quantity * action.payload.item.value)
             array.map((opt:ItemsState,i:number)=>{
                 if(opt.id === action.payload.item.id){
                     if(array.length > 0){

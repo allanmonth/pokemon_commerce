@@ -4,11 +4,11 @@ import {useWindowsSizeInterface} from "../../../../interfaces/useWindowsSize";
 export const useResumeCSS = makeStyles(() =>
     createStyles({
         root: {
-            width: (size:useWindowsSizeInterface) => size.width/12 * 3.3,
+            width: (size:useWindowsSizeInterface) => size.mobile? '100%' : size.width/12 * 3.3,
             maxHeight: window.innerHeight/12 * 10,
-            position:'fixed',
-            right:20,
-            marginTop: 80,
+            position:(size:useWindowsSizeInterface) => size.mobile? 'relative' : 'fixed',
+            right: (size:useWindowsSizeInterface) => size.mobile? 0 : 20,
+            marginTop:(size:useWindowsSizeInterface) => size.mobile? 10 : 80,
             overflowY: 'auto',
         },
         title: {

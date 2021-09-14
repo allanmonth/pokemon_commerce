@@ -10,7 +10,8 @@ import intl from "react-intl-universal";
 export function NotResult(props:NotResultInterface){
     return(
         <div
-            style={{
+            style={!props.styleBool ? {} :
+                {
                 position: 'absolute', left: '50%', top: '50%',
                 transform: 'translate(-50%, -50%)'
             }}
