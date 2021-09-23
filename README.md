@@ -10,7 +10,11 @@ Web application at Next.js
 ## Warnings
 
 **Language:** app available in pt-BR and en-US.
+
+**Theme:** app available in Dark mode and Light mode.
+
 **Language API :** only en-US available.
+
 **Money Random :** values random.
 
 ## Run Locally
