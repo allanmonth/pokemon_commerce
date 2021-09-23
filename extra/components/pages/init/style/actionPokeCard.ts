@@ -14,7 +14,7 @@ export const useActionPokeCardCSS = makeStyles((theme) =>
             cursor:'pointer'
         },
         button: {
-            color : theme.palette.action.active ,
+            color : theme.palette.action.active.bold ,
             marginBottom:5,
             marginTop:5,
             width: '95%'

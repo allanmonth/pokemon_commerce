@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Pagination} from "@material-ui/lab";
+import { Pagination , PaginationItem } from "@material-ui/lab";
 import {useRouter} from "next/router";
 
 //Components
@@ -38,7 +38,7 @@ export default function Home(){
 
     //Quantity Cards
     const sumLimit = (size.width / 12 * 9) / 300 >> 0
-    const limit = sumLimit === 0 ? 5 : sumLimit * 5
+    const limit = sumLimit === 0 ? 9 : sumLimit * 9
 
     //Init
     useEffect(()=>{
@@ -82,6 +82,7 @@ export default function Home(){
                                           count={count}
                                           page={page}
                                           color="primary"
+                                          renderItem={(item) => <PaginationItem style={{width:48,height:48}} {...item} />}
                                           onChange={handleChange} />
                           </Grid12>
                       </>
