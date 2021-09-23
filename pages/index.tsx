@@ -66,25 +66,27 @@ export default function Home(){
               <Grid9 justifyContent={'center'}
                      style={{padding:20,paddingTop:70}}>
                   {items.length > 0?
-                      items.map((option: ItemsPokemonCard) => (
-                          <PokeCard key={option.name}
-                                    id={String(option.url.slice(0, -1))}
-                                    title={option.name}
-                                    subtitle={Math.floor((Math.random() * 1000) + 1)}
-                                    clickView={() => {
-                                        clickView(String(option.url.slice(0, -1)), router)
-                                    }}/>
-                      ))
+                      <>
+                          {items.map((option: ItemsPokemonCard) => (
+                              <PokeCard key={option.name}
+                                        id={String(option.url.slice(0, -1))}
+                                        title={option.name}
+                                        subtitle={Math.floor((Math.random() * 1000) + 1)}
+                                        clickView={() => {
+                                            clickView(String(option.url.slice(0, -1)), router)
+                                        }}/>
+                          ))}
+                          <Grid12 justifyContent={'center'}
+                                  style={{marginTop:20}}>
+                              <Pagination size={size.mobile? 'small' : 'medium'}
+                                          count={count}
+                                          page={page}
+                                          color="primary"
+                                          onChange={handleChange} />
+                          </Grid12>
+                      </>
                       : <SkeletonGalleryPokeCard/>
                   }
-                  <Grid12 justifyContent={'center'}
-                          style={{marginTop:20}}>
-                      <Pagination size={size.mobile? 'small' : 'medium'}
-                                  count={count}
-                                  page={page}
-                                  color="primary"
-                                  onChange={handleChange} />
-                  </Grid12>
               </Grid9>
               {!size.mobile?
                   <Grid3 style={{padding:20}}>
