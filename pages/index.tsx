@@ -38,11 +38,13 @@ export default function Home(){
 
     //Quantity Cards
     const sumLimit = (size.width / 12 * 9) / 300 >> 0
-    const limit = sumLimit === 0 ? 1 : sumLimit * 1
+    const limit = sumLimit === 0 ? 5 : sumLimit * 5
 
     //Init
     useEffect(()=>{
-        getPokemon(0, limit,setItems,change,setChange,setCount,dispatch)
+        if(size.mobile && sumLimit === 0 || !size.mobile && sumLimit > 0){
+            getPokemon(0, limit,setItems,change,setChange,setCount,dispatch)
+        }
     },[size])
 
     //Change page
