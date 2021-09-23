@@ -43,7 +43,7 @@ export default function Home(){
     //Init
     useEffect(()=>{
         getPokemon(0, limit,setItems,change,setChange,setCount,dispatch)
-    },[size])
+    },[])
 
     //Change page
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {

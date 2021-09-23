@@ -1,11 +1,12 @@
 
 # Pokemon Commerce
+![App Screenshot](https://user-images.githubusercontent.com/45175421/134592329-e3ab2730-119f-4d4b-8f3f-356110260404.png)
 
 Web application at Next.js
 
-## Screenshots
+## Online App
 
-![App Screenshot](https://github.com/allanmonth/pokemon_commerce/tree/main/public/image/home.png)
+[Pokemon Online Deploy](https://pokemon-commerce.vercel.app/)
 
 ## Tech Stack
 
@@ -20,10 +21,6 @@ Web application at Next.js
 **Language API :** only en-US available.
 
 **Money Random :** values random.
-
-## Online App
-
-[Pokemon Online Deploy](https://pokemon-commerce.vercel.app/)
 
 ## Run Locally
 
