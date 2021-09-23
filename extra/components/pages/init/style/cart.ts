@@ -4,7 +4,7 @@ import {useWindowsSizeInterface} from "../../../../interfaces/useWindowsSize";
 export const useCartCSS = makeStyles(() =>
     createStyles({
         rootStart: {
-            width: (size:useWindowsSizeInterface) => size.width/12 * 3.3,
+            width: (size:useWindowsSizeInterface) => size.width/12 * 3,
             maxHeight: window.innerHeight/12 * 10,
             position:'fixed',
             right:20,
@@ -14,7 +14,7 @@ export const useCartCSS = makeStyles(() =>
             borderBottomLeftRadius:0
         },
         rootEnd: {
-            width: (size:useWindowsSizeInterface) => size.width/12 * 3.3,
+            width: (size:useWindowsSizeInterface) => size.width/12 * 3,
             height: 150,
             position:'fixed',
             right:20,
@@ -24,7 +24,7 @@ export const useCartCSS = makeStyles(() =>
             borderTopRightRadius:0
         },
         root: {
-            width: (size:useWindowsSizeInterface) => size.width/12 * 3.3,
+            width: (size:useWindowsSizeInterface) => size.width/12 * 3,
             height: window.innerHeight - 330,
             position:'fixed',
             right:20,

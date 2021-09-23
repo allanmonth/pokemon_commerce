@@ -1,4 +1,4 @@
-import React , { lazy , useEffect , useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import Head from 'next/head'
 import {AppProps} from "next/app";
 
@@ -21,10 +21,6 @@ import {useNavigator} from "../extra/hooks/useNavigator";
 //Components
 import CustomizedSnackbars from "../extra/components/common/snack";
 import CustomizedDialogs from "../extra/components/common/dialog";
-
-//Laze Components
-const SnackLazeComponent = lazy(() => import('../extra/components/common/snack'));
-const DialogLazeComponent = lazy(() => import('../extra/components/common/dialog'));
 
 function MyApp({Component, pageProps}: AppProps) {
   const [isMounted, setIsMounted] = useState(false)
@@ -58,8 +54,8 @@ function MyApp({Component, pageProps}: AppProps) {
             <Provider store={store}>
               <MuiThemeProvider theme={theme}>
                 <CssBaseline/>
-                <DialogLazeComponent/>
-                <SnackLazeComponent/>
+                <CustomizedDialogs/>
+                <CustomizedSnackbars/>
                 <Component {...pageProps} />
               </MuiThemeProvider>
             </Provider>
