@@ -43,10 +43,9 @@ export default class MyDocument extends Document {
                     <link rel="shortcut icon" href="/brand/pokeballIcon.png" />
                     <meta charSet="utf-8" />
                     <link href='//fonts.googleapis.com/css?family=Montserrat:thin,extra-light,light,100,200,300,400,500,600,700,800'
-                          rel='stylesheet' type='text/css'/>
-                    <link
-                        href="https://fonts.googleapis.com/css2?family=Krona+One&display=optional"
-                        rel="stylesheet"
+                          rel="preload" type='text/css'/>
+                    <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=optional"
+                          rel="preload"
                     />
                 </Head>
                 <body>
