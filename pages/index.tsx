@@ -38,12 +38,12 @@ export default function Home(){
 
     //Quantity Cards
     const sumLimit = (size.width / 12 * 9) / 300 >> 0
-    const limit = sumLimit === 0 ? 9 : sumLimit * 9
+    const limit = sumLimit === 0 ? 1 : sumLimit * 1
 
     //Init
     useEffect(()=>{
         getPokemon(0, limit,setItems,change,setChange,setCount,dispatch)
-    },[])
+    },[size])
 
     //Change page
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
