@@ -15,6 +15,7 @@ api.interceptors.request.use(
         // @ts-ignore
         const currentLocale = locales[language] ? language : 'en-us';
         config.headers['accept-language'] = currentLocale
+        config.headers['cache-control'] = 'max-age=31536000'
         return config;
     }, function (e) {
         console.log(e)
