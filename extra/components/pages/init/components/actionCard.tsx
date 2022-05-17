@@ -28,7 +28,7 @@ export function ActionCard(props: ActionPokeCardInterface){
             <Button hidden
                     fullWidth
                     variant={props.variant ?? "contained"}
-                    color={'primary'}
+                    color={props.color ?? 'primary'}
                     className={classes.button}
                     startIcon={props.icon}
                     onClick={props.click}>

@@ -11,15 +11,12 @@ export function NotResult(props:NotResultInterface){
     return(
         <div
             style={!props.styleBool ? {} :
-                {
-                position: 'absolute', left: '50%', top: '50%',
-                transform: 'translate(-50%, -50%)'
-            }}
+                {marginTop:30,marginBottom:30}}
         >
-            <TypographyCustom align={'center'}>
+            <TypographyCustom align={'center'} color={'textSecondary'}>
                 {props.icon}
             </TypographyCustom>
-            <TypographyCustom align={'center'}>
+            <TypographyCustom align={'center'} color={'textSecondary'}>
                 {intl.get(props.title)}
             </TypographyCustom>
         </div>

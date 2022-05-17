@@ -10,7 +10,7 @@ export const useSkeletonPokeCardCSS = makeStyles(() =>
             minHeight: 350,
             marginRight: '2%',
             marginLeft: '2%',
-            marginTop: (size:useWindowsSizeInterface) => size.mobile? '-28%' : '-8%',
+            marginTop: (size:useWindowsSizeInterface) => size.mobile? '-6rem' : '-5rem',
         },
     }),
 );

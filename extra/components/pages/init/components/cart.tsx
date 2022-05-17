@@ -49,9 +49,8 @@ export function Cart(){
                         {intl.get('cart')}
                     </TypographyCustom>
                 </Grid12>
-            </Paper>
-            <Paper className={classes.root}>
                 {/*items*/}
+                <Grid12 justifyContent={'center'}>
                 {cart.items !== undefined ?
                     cart.items.length === 0 ?
                     <NotResult styleBool={true} icon={<ShoppingCartOutlined/>} title={'cartEmply'}/>
@@ -65,8 +64,7 @@ export function Cart(){
                                   quantity={opt.quantity}/>
                     )): null
                 }
-            </Paper>
-            <Paper className={classes.rootEnd}>
+                </Grid12>
                 {/*value total*/}
                 <Grid12 justifyContent={'center'}
                         style={{marginTop:10}}>

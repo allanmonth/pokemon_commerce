@@ -15,7 +15,6 @@ import { useNavigator } from "../../../../hooks/useNavigator";
 import {Grid12} from "../../../common/grid";
 import {TypographyCustom} from "../../../common/typography";
 import {ActionCard} from "./actionCard";
-import {SkeletonPokeCard} from "./SkeletonPokeCard";
 
 //Services
 import {useFetchPokemon} from "../../../../services/pokeAPI/useFetch";
@@ -50,45 +49,51 @@ export function PokeCard(props : pokeCardInterface) {
 
     return (
         !data?
-            <SkeletonPokeCard/>
+            null
             :
             <Card className={classes.root}>
-                <CardContent>
-                    <Grid12 justifyContent={'center'}>
-                        <Image alt={data.sprites.front_default}
-                               src={data.sprites.front_default}
-                               objectFit="contain"
-                               width={'100%'}
-                               height={'100%'}
-                               quality={100}
-                               priority />
-                    </Grid12>
-                    <Grid12 justifyContent={'center'}>
-                        <TypographyCustom variant={props.title.length < 15 ?'h2' : 'h3'}>
-                            {props.title[0].toUpperCase() + props.title.substr(1)}
-                        </TypographyCustom>
-                    </Grid12>
-                    <Grid12 justifyContent={'center'} style={{marginBottom:20}}>
-                        <TypographyCustom>
-                            {String(FormatterCurrency(props.subtitle, language))}
-                        </TypographyCustom>
-                    </Grid12>
-                    <Grid12 justifyContent={'center'} >
-                        <ActionCard title={'view'}
-                                    icon={<OpenInBrowser/>}
-                                    click={props.clickView}
-                                    variant={'outlined'}/>
-                        <ActionCard title={ 'addCard' }
-                                    icon={ <AddCircleRounded/> }
-                                    click={()=>clickAdd({
-                                        id: Number(id),
-                                        image: data.sprites.front_default,
-                                        name: props.title,
-                                        value: props.subtitle,
-                                        quantity: 1,
-                                    },dispatch)}
-                                    variant={ 'contained' }/>
-                    </Grid12>
+                <CardContent style={{display: 'flex', flexDirection:'column', justifyContent: 'space-around', height: '100%'}}>
+                    <div>
+                        <Grid12 justifyContent={'center'}>
+                            <Image alt={data.sprites.front_default}
+                                src={data.sprites.front_default}
+                                objectFit="contain"
+                                width={'100%'}
+                                height={'100%'}
+                                quality={100}
+                                priority />
+                        </Grid12>
+                        <Grid12 justifyContent={'center'}>
+                            <TypographyCustom variant={'h2'} align='center'>
+                                {props.title[0].toUpperCase() + 
+                                props.title.substr(1).replace('-', ' ').replace('-', ' ').replace('-', ' ').replace('-', ' ')}
+                            </TypographyCustom>
+                        </Grid12>
+                        <Grid12 justifyContent={'center'} style={{marginBottom:20}}>
+                            <TypographyCustom variant='subtitle1'>
+                                {String(FormatterCurrency(props.subtitle, language))}
+                            </TypographyCustom>
+                        </Grid12>
+                    </div>
+                    <div>
+                        <Grid12 justifyContent={'center'}>
+                            <ActionCard title={'view'}
+                                        color={'secondary'}
+                                        icon={<OpenInBrowser/>}
+                                        click={props.clickView}
+                                        variant={'outlined'}/>
+                            <ActionCard title={ 'addCard' }
+                                        icon={ <AddCircleRounded/> }
+                                        click={()=>clickAdd({
+                                            id: Number(id),
+                                            image: data.sprites.front_default,
+                                            name: props.title,
+                                            value: props.subtitle,
+                                            quantity: 1,
+                                        },dispatch)}
+                                        variant={ 'contained' }/>
+                        </Grid12>
+                    </div>
                 </CardContent>
             </Card>
     );

@@ -4,5 +4,6 @@ export interface ActionPokeCardInterface {
     title: string,
     icon: React.ReactElement,
     click : React.MouseEventHandler,
-    variant: "text" | "outlined" | "contained" | undefined
+    variant: "text" | "outlined" | "contained" | undefined,
+    color?: 'primary' | 'secondary' | undefined,
 }

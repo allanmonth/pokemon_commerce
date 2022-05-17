@@ -36,10 +36,17 @@ export function CartItem(props:ItemsState){
                        priority />
             </Grid2>
             <Grid4>
-                <TypographyCustom variant={'body1'}
+                <div style={{display:'flex',alignItems:'center'}}>
+                <TypographyCustom variant={'body1'} color={'secondary'}
                                   className={classes.title}>
-                    {props.quantity} x {props.name}
+                    {props.quantity}
                 </TypographyCustom>
+                <TypographyCustom variant={'body2'}
+                                  className={classes.title}>
+                    x {props.name}
+                </TypographyCustom>
+                </div>
+                
             </Grid4>
             <Grid4 justifyContent={'flex-end'}>
                 <TypographyCustom variant={'body1'}

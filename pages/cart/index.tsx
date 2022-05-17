@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Paper } from "@material-ui/core";
 
 //Components
@@ -26,14 +26,16 @@ import { ItemsState } from "../../extra/interfaces/cartState";
 import { ShoppingCartOutlined } from "@material-ui/icons";
 
 export default function ViewCart(){
+    const [init,setInit] = useState(true)
     const size = useWindowSize()
     const cart = useAppSelector(selectCart)
 
     return(
         <Grid12>
             <Grid12>
-                <Header back={true}/>
+                <Header back={true} setInit={setInit}/>
             </Grid12>
+            {!init? 
             <Grid9 justifyContent={'center'}
                    style={{padding:20,paddingTop:100}}>
                 <Paper style={{width: size.mobile? '100%' : '90%'}}>
@@ -60,9 +62,12 @@ export default function ViewCart(){
                     </Grid12>
                 </Paper>
             </Grid9>
+            : null }
+            {!init ?
             <Grid3 style={{padding:20}}>
                 <Resume/>
             </Grid3>
+            : null }
         </Grid12>
     )
 }

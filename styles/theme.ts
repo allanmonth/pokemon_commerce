@@ -8,14 +8,14 @@ export default function Theme() {
     const theme = createMuiTheme({
         palette: {
             primary: {
-                light : '#7EA96B',
-                main : '#7EA96B',
-                dark : '#7EA96B',
+                light : '#ff8080',
+                main : '#ff3636',
+                dark : '#0e0000',
             },
             secondary: {
-                light : '#FD904E',
-                main : '#FD904E',
-                dark : '#FD904E',
+                light : '#ffffff',
+                main : '#fffafa',
+                dark : '#f2f2f2',
             },
             success: {
                 light : '#7EA96B',
@@ -38,7 +38,7 @@ export default function Theme() {
                 fontWeight: 600,
             },
             h2:{
-                fontSize: 20,
+                fontSize: 26,
                 fontWeight: 600,
             },
             h3:{
@@ -51,14 +51,35 @@ export default function Theme() {
             },
             subtitle1:{
                 fontSize: 14,
+                color: '#b8b8b8',
             },
             subtitle2:{
                 fontSize: 12,
+            },
+            body1:{
+                fontSize: 20,
+                fontWeight: 600,
             },
         },
         shape: {
             borderRadius: 20,
         },
+        overrides:{
+            MuiCssBaseline: {
+                '@global': {
+                    '*::-webkit-scrollbar': {
+                      width: '0rem'
+                    },
+                    '*::-webkit-scrollbar-track': {
+                      '-webkit-box-shadow': 'inset 0 0 6px rgba(0,0,0,0.00)'
+                    },
+                    '*::-webkit-scrollbar-thumb': {
+                      backgroundColor: 'rgba(0,0,0,.1)',
+                      outline: '1px solid slategrey'
+                    }
+                  }
+            }
+        }
     });
     return responsiveFontSizes(theme)
 }

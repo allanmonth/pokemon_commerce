@@ -4,7 +4,7 @@ import {useRouter} from "next/router";
 
 //Components
 import {Header} from "../extra/components/common/header";
-import {Grid12, Grid3, Grid9} from "../extra/components/common/grid";
+import {Grid10, Grid12, Grid2, Grid3, Grid9} from "../extra/components/common/grid";
 import {PokeCard} from "../extra/components/pages/init/components/pokeCard";
 import {SkeletonGalleryPokeCard} from "../extra/components/pages/init/components/SkeletonGalleryPokeCard";
 import {Cart} from "../extra/components/pages/init/components/cart";
@@ -28,6 +28,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import {ItemsPokemonCard} from "../extra/interfaces/itemsPokemonCard";
 
 export default function Home(){
+    const [init,setInit] = useState(true)
     const router = useRouter()
     const size = useWindowSize()
     const [items,setItems] = useState<ItemsPokemonCard[]>([])
@@ -37,8 +38,9 @@ export default function Home(){
     const dispatch = useDispatch()
 
     //Quantity Cards
-    const sumLimit = (size.width / 12 * 9) / 300 >> 0
-    const limit = sumLimit === 0 ? 5 : sumLimit * 5
+    const sumLimit = (size.width / 12 * 9) / 310 >> 0
+    const sumLimitH = (size.height / 12 * 9) / 280 >> 0
+    const limit = sumLimit === 0 ? 5 : sumLimit * sumLimitH
 
     //Init
     useEffect(()=>{
@@ -62,10 +64,11 @@ export default function Home(){
   return(
       <Grid12>
           <Grid12>
-              <Header handleFind={handleFind}/>
+              <Header handleFind={handleFind} setInit={setInit}/>
           </Grid12>
+          {!init?
           <Grid12>
-              <Grid9 justifyContent={'center'}
+              <Grid10 justifyContent={'center'}
                      style={{padding:20,paddingTop:70}}>
                   {items.length > 0?
                       <>
@@ -84,20 +87,23 @@ export default function Home(){
                                           count={count}
                                           page={page}
                                           color="primary"
-                                          renderItem={(item) => <PaginationItem style={{width:48,height:48}} {...item} />}
+                                          renderItem={(item) => <PaginationItem 
+                                            style={size.mobile?{width:30,height:30}:{width:48,height:48}} 
+                                            {...item} />}
                                           onChange={handleChange} />
                           </Grid12>
                       </>
                       : <SkeletonGalleryPokeCard/>
                   }
-              </Grid9>
+              </Grid10>
               {!size.mobile?
-                  <Grid3 style={{padding:20}}>
+                  <Grid2 style={{padding:20}}>
                       <Cart/>
-                  </Grid3>
+                  </Grid2>
                   : null
               }
           </Grid12>
+          : null}
       </Grid12>
   )
 }

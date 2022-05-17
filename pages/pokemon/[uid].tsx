@@ -1,4 +1,4 @@
-import React  from "react";
+import React, { useState }  from "react";
 import { Chip , LinearProgress, Paper } from "@material-ui/core";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -28,6 +28,7 @@ import { AddCircleRounded } from "@material-ui/icons";
 import { clickAdd } from "../../extra/components/pages/init/utils/clickAdd";
 
 export default function ViewPokemon(){
+    const [init,setInit] = useState(true)
     const size = useWindowSize();
     const router = useRouter();
     const { uid } = router.query;
@@ -37,12 +38,12 @@ export default function ViewPokemon(){
     return(
         <Grid12>
             <Grid12>
-                <Header back={true}/>
+                <Header back={true} setInit={setInit}/>
             </Grid12>
-            {data !== undefined?
+            {data !== undefined && !init ?
                 <Grid12 justifyContent={'center'}
                        style={{padding:20,paddingTop:100}}>
-                    <Paper style={{width: size.mobile? '100%' : '90%'}}>
+                    <Paper style={{width: size.mobile? '100%' : '90%', maxWidth: 600}}>
                         {/*name*/}
                         <Grid12 justifyContent={'center'}>
                             <TypographyCustom variant={'h1'} style={{paddingTop:20}}>

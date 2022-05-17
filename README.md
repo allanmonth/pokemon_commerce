@@ -1,127 +1,67 @@
 
-# Pokemon Commerce
+# Pokemon Store
 
-![App Screenshot](https://user-images.githubusercontent.com/45175421/134592329-e3ab2730-119f-4d4b-8f3f-356110260404.png)
+Projeto que consiste em consumir a API do Poke e construir um e-commerce de pokemon.
 
-Web application at Next.js
 
-## Score App
+## Sobre o projeto
 
-![Score Screenshot](https://user-images.githubusercontent.com/45175421/134594019-25df3fbe-3307-452e-bd5b-427f222709f5.png)
+Como dito anteriormente, este projeto consome a API do Poke. O usuário acessa o site e tem um modelo de e-commerce para comprar pokemons. Os preços são gerados aleatórios.
+Tem a opção de buscar por um específico e tem como visualizar o mesmo com todos os detalhes.
+Disponível em 2 idiomas: Português e Inglês.
 
-## Online App
 
-[Pokemon Online Deploy](https://pokemon-commerce.vercel.app/)
+## Demonstração
 
-## Tech Stack
+Veja abaixo uma foto do projeto.
+[![Image from Gyazo](https://i.gyazo.com/919bed2c0d228e599732e1da6debe8be.png)](https://gyazo.com/)
 
-**Client:** Next.JS, React, Redux, Material-UI , Axios, SWR.
+Você pode conferir o resultado final em: https://pokemon.allanmonth.vercel.app/
 
-## Warnings
 
-**Language:** app available in pt-BR and en-US.
+## Objetivo do projeto
 
-**Theme:** app available in Dark mode and Light mode.
+Foi realizado este projeto com o intuito de aplicar os conhecimentos sobre requisições HTTPS. Além disso, foi desenvolvido para aperfeiçoar os conhecimentos em Next.js e TypeScript.
 
-**Language API :** only en-US available.
+## Serviço utilizado
 
-**Money Random :** values random.
+Para a realização desse projeto foram utilizadas as seguintes serviços:
+- [Poke API](https://pokeapi.co/)
 
-## Run Locally
 
-Clone the project
+## Stack utilizada
+
+Para a realização desse projeto foram utilizadas as seguintes tecnologias/linguagens:
+- [Next.js](https://nextjs.org/)
+- [Styled Components](https://www.styled-components.com/)
+- [React Intl Universal](https://github.com/alibaba/react-intl-universal)
+- [React Responsive Carousel](https://github.com/leandrowd/react-responsive-carousel)
+- [Mui](https://mui.com/pt/)
+
+
+## Rodando localmente
+
+Clone o projeto
 
 ```bash
   git clone https://github.com/allanmonth/pokemon_commerce
 ```
 
-Go to the project directory
+Entre no diretório do projeto
 
 ```bash
   cd pokemon_commerce
 ```
 
-Install dependencies
+Instale as dependências
 
 ```bash
-  yarn i
+  yarn install
 ```
 
-Start the server
+Inicie o servidor
 
 ```bash
   yarn dev
 ```
-
-
-## API Reference
-
-#### Routes
-
-```http
-  https://pokeapi.co/api/v2/
-```
-
-## Directories
-
-Extra/Components
-
-```bash
-  Common components
-```
-
-Extra/Config
-
-```bash
-  Application settings (firebase, auth, etc)
-```
-
-Extra/Hooks
-
-```bash
-  Hook functions
-```
-
-Extra/Languages
-
-```bash
-  JSON languages
-```
-
-Extra/Redux
-
-```bash
-  Settings Redux
-```
-
-Extra/Services
-
-```bash
-  API services
-```
-
-Extra/Constants
-
-```bash
-  Variables
-```
-
-Extra/Interfaces
-
-```bash
-  Interface Typescript
-```
-
-Extra/Utils
-
-```bash
-  Functions generic
-```
-
-## Documentation
-
-[API Documentation](https://pokeapi.co/)
-
-[WEB Documentation](https://github.com/b2wdigital/desafio-loja-pokemon/tree/pleno)
-
-  
+Abra http://localhost:3000 no seu navegador para visualizar o projeto.

@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 //Icons
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import { ArrowBackIosOutlined , ShoppingCart } from "@material-ui/icons";
+import { ArrowBackIosOutlined , Language, ShoppingCart } from "@material-ui/icons";
 
 //Redux
 import { useAppSelector } from "../../redux/hooks";
@@ -23,6 +23,7 @@ import { useHeaderCSS } from "../../../styles/header";
 
 //Components
 import { TypographyCustom } from "./typography";
+import { LanguageComponent } from './Language';
 
 //Constants
 import { viewCartRouter } from "../../constants/router";
@@ -64,18 +65,10 @@ export function Header(props:HeaderInterface) {
                         </>
                         :
                         <>
-                            <IconButton
-                                edge="start"
-                                className={classes.menuButton}
-                                color="inherit"
-                                aria-label="open drawer"
-                            >
-                                <MenuIcon />
-                            </IconButton>
                             <TypographyCustom className={classes.title}
                                               variant="h1"
                                               noWrap>
-                                Pokemon
+                                Pokemon Store
                             </TypographyCustom>
                         </>
                     }
@@ -110,6 +103,9 @@ export function Header(props:HeaderInterface) {
                                 <ShoppingCart />
                             </Badge>
                         </IconButton>
+                    </div>
+                    <div className={classes.sectionDesktop}>
+                        <LanguageComponent setInit={props.setInit}/>
                     </div>
                 </Toolbar>
             </AppBar>
